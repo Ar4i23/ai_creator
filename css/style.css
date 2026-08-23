@@ -1,0 +1,14 @@
+/* =========================================================
+   style.css — единственная точка входа стилей
+========================================================= */
+@import "modules/base.css";
+@import "modules/header.css";
+@import "modules/hero.css";
+@import "modules/content.css";
+@import "modules/packages.css";
+@import "modules/results.css";
+@import "modules/faq.css";
+@import "modules/form.css";
+@import "modules/footer.css";
+@import "modules/neon.css";
+@import "modules/media.css";

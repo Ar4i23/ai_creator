@@ -1,0 +1,308 @@
+/* =========================================================
+   hero-variants.css — архив альтернативных композиций hero
+   (киноафиша / телефон / типографика / восток)
+========================================================= */
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+/* Бегущая строка */
+.hero__marquee {
+  overflow: hidden;
+  padding-block: 10px;
+  border-block: 1px solid var(--card-border);
+  background: rgba(255, 127, 169, 0.05);
+}
+.hero__marquee-track {
+  display: flex;
+  gap: 48px;
+  width: max-content;
+  animation: marquee 22s linear infinite;
+}
+.hero__marquee-track span {
+  white-space: nowrap;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px var(--accent);
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* --- Киноафиша --- */
+.hero--cinema .hero__inner--center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 18px;
+}
+.hero__tickets {
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+}
+.hero__ticket {
+  position: relative;
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 22px;
+  border: 1px dashed var(--card-border);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: var(--card-shadow);
+}
+.hero__ticket::before,
+.hero__ticket::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1px dashed var(--card-border);
+}
+.hero__ticket::before {
+  left: -8px;
+}
+.hero__ticket::after {
+  right: -8px;
+}
+.hero__ticket-name {
+  color: var(--muted);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.hero__ticket-price {
+  color: #ffd9e6;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-shadow: 0 0 12px rgba(255, 77, 141, 0.7);
+}
+
+/* --- Телефон со статистикой --- */
+.phone {
+  position: relative;
+  z-index: 1;
+  width: min(320px, 86vw);
+  padding: 14px;
+  border: 2px solid var(--accent);
+  border-radius: 36px;
+  background: #120a10;
+  box-shadow:
+    0 0 0 1px rgba(255, 127, 169, 0.25),
+    0 0 34px rgba(255, 77, 141, 0.35),
+    inset 0 0 22px rgba(255, 77, 141, 0.08);
+}
+.phone__notch {
+  width: 110px;
+  height: 22px;
+  margin: 0 auto 12px;
+  border-radius: 999px;
+  background: #000;
+  border: 1px solid var(--border);
+}
+.phone__screen {
+  display: grid;
+  gap: 14px;
+  padding: 6px 6px 12px;
+}
+.phone__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.phone__avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--accent-soft);
+  border: 1px solid var(--card-border);
+  color: var(--accent);
+  text-shadow: 0 0 8px var(--accent);
+}
+.phone__name {
+  margin: 0;
+  font-weight: 800;
+}
+.phone__status {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+.phone__stats {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+.phone__stats li {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1px dashed var(--card-border);
+  border-radius: 12px;
+  font-size: 0.85rem;
+}
+.phone__stats b {
+  color: #ffd9e6;
+  text-shadow: 0 0 10px rgba(255, 77, 141, 0.7);
+}
+.phone__stats span {
+  color: var(--muted);
+}
+.phone__chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 90px;
+  padding: 10px 12px;
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+}
+.phone__bar {
+  flex: 1;
+  height: var(--h);
+  background: linear-gradient(180deg, var(--accent), var(--accent-strong));
+  border-radius: 6px 6px 2px 2px;
+  box-shadow: 0 0 10px rgba(255, 77, 141, 0.5);
+}
+.phone__caption {
+  margin: 0;
+  text-align: center;
+  color: var(--accent);
+  font-size: 0.85rem;
+}
+
+/* --- Типографика --- */
+.hero--type .hero__inner {
+  min-height: 56vh;
+  align-content: center;
+  justify-content: center;
+}
+.hero__title--xl {
+  font-size: clamp(2.2rem, 7vw, 4.4rem);
+}
+.hero__title-neon {
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  color: #ffe1ec;
+  -webkit-text-fill-color: #ffe1ec;
+  font-family: "Marck Script", cursive;
+  font-weight: 400;
+  text-shadow:
+    0 0 6px #fff,
+    0 0 16px var(--accent),
+    0 0 40px var(--accent-strong);
+}
+
+/* --- Восток --- */
+.east-sun {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -52%);
+  width: min(360px, 80%);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+  background: radial-gradient(
+    circle,
+    rgba(255, 77, 141, 0.28),
+    transparent 65%
+  );
+  box-shadow:
+    0 0 30px rgba(255, 77, 141, 0.45),
+    inset 0 0 40px rgba(255, 77, 141, 0.25);
+}
+.east-sign {
+  position: absolute;
+  z-index: 2;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  padding: 18px 10px;
+  border: 2px solid var(--accent);
+  border-radius: 14px;
+  background: rgba(18, 10, 16, 0.55);
+  color: #ffe1ec;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-shadow:
+    0 0 6px #fff,
+    0 0 16px var(--accent),
+    0 0 36px var(--accent-strong);
+  box-shadow:
+    0 0 18px rgba(255, 77, 141, 0.5),
+    inset 0 0 14px rgba(255, 77, 141, 0.2);
+}
+.east-sign--left {
+  left: 2%;
+  top: 6%;
+}
+.east-sign--right {
+  right: 2%;
+  bottom: 8%;
+}
+.east-sign--flicker {
+  animation: neon-flicker 6s linear infinite;
+}
+.east-lantern {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 18%;
+  font-size: 2rem;
+  filter: drop-shadow(0 0 12px rgba(255, 77, 141, 0.8));
+  animation: neon-twinkle 3s ease-in-out infinite;
+}
+
+/* Светлая тема */
+[data-theme="light"] .hero__ticket-price,
+[data-theme="light"] .phone__stats b {
+  color: var(--accent);
+  text-shadow: none;
+}
+[data-theme="light"] .phone {
+  background: var(--surface);
+}
+[data-theme="light"] .hero__title-neon {
+  color: var(--accent);
+  -webkit-text-fill-color: var(--accent);
+  text-shadow: 0 0 12px rgba(224, 86, 123, 0.35);
+}
+[data-theme="light"] .east-sign {
+  color: var(--accent);
+  text-shadow: 0 0 12px rgba(224, 86, 123, 0.35);
+  background: var(--surface);
+}
+[data-theme="light"] .east-sun {
+  background: radial-gradient(
+    circle,
+    rgba(224, 86, 123, 0.15),
+    transparent 65%
+  );
+}

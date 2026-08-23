@@ -1,0 +1,138 @@
+/* ========= БЛОК header (база — десктоп) ========= */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  background: var(--header-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: var(--header-height);
+}
+.header__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text);
+}
+.header__logo-text {
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.header__cta {
+  display: inline-flex;
+}
+
+/* ========= БЛОК menu (десктоп — строка) ========= */
+.menu {
+  display: block;
+}
+.menu__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+}
+.menu__link {
+  display: block;
+  padding: 10px 14px;
+  border-radius: 12px;
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
+}
+.menu__link:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.menu__cta {
+  display: none;
+}
+
+/* ========= БЛОК burger (на десктопе скрыт) ========= */
+.burger {
+  display: none;
+  width: 44px;
+  height: 44px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: var(--surface);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  color: var(--text);
+  cursor: pointer;
+}
+.burger__line {
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition:
+    transform 0.3s,
+    opacity 0.3s;
+}
+.burger--active .burger__line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.burger--active .burger__line:nth-child(2) {
+  opacity: 0;
+}
+.burger--active .burger__line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Затемнение + блюр страницы под открытым меню */
+body.is-menu-open {
+  overflow: hidden;
+}
+body.is-menu-open::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  background: rgba(11, 7, 18, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* ========= БЛОК theme-toggle ========= */
+.theme-toggle {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  color: var(--accent);
+  cursor: pointer;
+}
+.theme-toggle:hover {
+  box-shadow: var(--glow);
+}
+.theme-toggle__icon--moon {
+  display: none;
+}
+[data-theme="light"] .theme-toggle__icon--moon {
+  display: block;
+}
+[data-theme="light"] .theme-toggle__icon--sun {
+  display: none;
+}

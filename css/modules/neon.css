@@ -1,0 +1,144 @@
+/* =========================================================
+   neon.css — дуотон-неон по всему сайту
+========================================================= */
+
+/* Усиление тёмной темы */
+:root[data-theme="dark"] {
+  --card-border: rgba(255, 95, 174, 0.55);
+  --card-shadow: 0 0 26px rgba(160, 107, 255, 0.2);
+  --glow: 0 0 20px rgba(255, 95, 174, 0.6);
+  --border: #3b2a55;
+}
+
+/* Неоновые рамки карточек */
+.benefit-card,
+.format-card,
+.work-card,
+.step,
+.package-card,
+.results__card,
+.results__reason,
+.faq-item,
+.form,
+.stats__item {
+  border-color: var(--card-border);
+  box-shadow:
+    0 0 0 1px rgba(255, 95, 174, 0.2),
+    0 0 26px rgba(160, 107, 255, 0.18),
+    inset 0 0 22px rgba(255, 95, 174, 0.05);
+}
+
+.benefit-card:hover,
+.format-card:hover,
+.work-card:hover,
+.package-card:hover,
+.stats__item:hover {
+  border-style: solid;
+  box-shadow:
+    0 0 0 1px rgba(255, 95, 174, 0.5),
+    0 0 34px rgba(160, 107, 255, 0.35),
+    inset 0 0 26px rgba(255, 95, 174, 0.1);
+}
+
+/* Свечение заголовков, логотипа, меню */
+.section__title {
+  text-shadow:
+    0 0 6px rgba(255, 95, 174, 0.7),
+    0 0 26px rgba(160, 107, 255, 0.4);
+}
+.section__title::after {
+  box-shadow:
+    0 0 14px var(--accent),
+    0 0 30px var(--accent-2);
+}
+.header__logo-icon {
+  filter: drop-shadow(0 0 8px rgba(255, 95, 174, 0.9));
+}
+.header__logo-text {
+  text-shadow: 0 0 12px rgba(255, 95, 174, 0.6);
+}
+.menu__link:hover {
+  text-shadow: 0 0 10px rgba(255, 95, 174, 0.8);
+}
+
+/* Иконки, номера, детали */
+.benefit-card__icon {
+  border: 1px dashed var(--card-border);
+  box-shadow:
+    0 0 16px rgba(255, 95, 174, 0.45),
+    inset 0 0 12px rgba(255, 95, 174, 0.2);
+}
+.step__number {
+  background: rgba(255, 95, 174, 0.1);
+  box-shadow: 0 0 16px rgba(255, 95, 174, 0.5);
+}
+
+/* Градиентные цифры и цены */
+.stats__value,
+.package-card__price {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 12px rgba(255, 95, 174, 0.5));
+}
+
+/* Инпуты — неон */
+.form__input,
+.form__select,
+.form__textarea {
+  background: rgba(160, 107, 255, 0.06);
+  border: 1px solid var(--card-border);
+  box-shadow: inset 0 0 14px rgba(160, 107, 255, 0.1);
+}
+.form__input:focus,
+.form__select:focus,
+.form__textarea:focus {
+  border-color: var(--accent);
+  box-shadow:
+    0 0 0 3px rgba(255, 95, 174, 0.2),
+    0 0 26px rgba(160, 107, 255, 0.45),
+    inset 0 0 14px rgba(255, 95, 174, 0.12);
+}
+.form__group--invalid .form__input,
+.form__group--invalid .form__select,
+.form__group--invalid .form__textarea {
+  border-color: var(--error);
+  box-shadow: 0 0 18px rgba(255, 107, 116, 0.5);
+}
+
+/* FAQ и скроллбар */
+.faq-item__question::after {
+  text-shadow: 0 0 12px var(--accent);
+}
+.faq-item[open] {
+  box-shadow: 0 0 30px rgba(160, 107, 255, 0.3);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--accent), var(--accent-2));
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(255, 95, 174, 0.5);
+}
+
+/* Светлая тема — мягче */
+[data-theme="light"] .section__title,
+[data-theme="light"] .header__logo-text {
+  text-shadow: none;
+}
+[data-theme="light"] .header__logo-icon {
+  filter: none;
+}
+[data-theme="light"] .form__input,
+[data-theme="light"] .form__select,
+[data-theme="light"] .form__textarea {
+  background: var(--bg);
+  border-color: var(--card-border);
+  box-shadow: none;
+}

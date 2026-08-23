@@ -1,0 +1,218 @@
+/* =========================================================
+   БЛОК hero — фулл-скрин сцена: текст слева, персонаж справа
+========================================================= */
+.hero {
+  /* резиновые регуляторы */
+  --hero-x: 60%;
+  --hero-y: 40%;
+  --gx1: rgba(11, 7, 18, 0.8);
+  --gx2: rgba(11, 7, 18, 0.45);
+
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  padding: 50px 16px 96px;
+  overflow: hidden;
+  background:
+    radial-gradient(rgba(160, 107, 255, 0.12) 1px, transparent 1.5px) 0 0 / 28px
+      28px,
+    var(--bg);
+}
+
+/* ---------- Фон сцены ---------- */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  background: url("../../img/hero.png") var(--hero-x) var(--hero-y) / cover
+    no-repeat;
+  transition:
+    filter 0.4s ease,
+    transform 0.4s ease;
+}
+
+/* Светлая тема — своя сцена */
+[data-theme="light"] .hero__bg {
+  background-image: url("../../img/hero_light.png");
+}
+
+/* ---------- Оверлей: слева под текст + сверху/снизу ---------- */
+.hero__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      var(--gx1) 0%,
+      var(--gx2) 45%,
+      rgba(11, 7, 18, 0) 72%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(11, 7, 18, 0.7) 0%,
+      rgba(11, 7, 18, 0.25) 30%,
+      rgba(11, 7, 18, 0.2) 60%,
+      rgba(11, 7, 18, 0.85) 100%
+    );
+}
+
+/* Светлая тема — мягкий оверлей без «молока» (ЕДИНСТВЕННЫЙ) */
+[data-theme="light"] .hero__bg::after {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(241, 235, 244, 0.6) 0%,
+      rgba(241, 235, 244, 0.28) 45%,
+      rgba(241, 235, 244, 0) 72%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(241, 235, 244, 0.5) 0%,
+      rgba(241, 235, 244, 0.12) 30%,
+      rgba(241, 235, 244, 0.08) 60%,
+      rgba(241, 235, 244, 0.6) 100%
+    );
+}
+
+/* ---------- Контент ---------- */
+.hero__inner {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  width: 100%;
+  max-width: 1060px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 32px;
+  text-align: left;
+}
+
+.hero__top {
+  display: grid;
+  justify-items: start;
+  gap: 18px;
+  max-width: 640px;
+}
+
+.hero__tagline {
+  margin: 0;
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  text-shadow: 0 0 12px rgba(255, 95, 174, 0.6);
+}
+
+.hero__title {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.12;
+  color: #fff;
+}
+.hero__accent {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 18px rgba(255, 95, 174, 0.7))
+    drop-shadow(0 0 40px rgba(160, 107, 255, 0.45));
+}
+
+.hero__text {
+  margin: 0;
+  max-width: 640px;
+  color: rgba(245, 238, 251, 0.85);
+}
+
+.hero__actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+/* ---------- Индикатор скролла ---------- */
+.hero__scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 80px;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.hero__mouse {
+  width: 22px;
+  height: 34px;
+  border: 2px solid var(--muted);
+  border-radius: 12px;
+  position: relative;
+  opacity: 0.8;
+}
+.hero__mouse::after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  margin-left: -1.5px;
+  width: 3px;
+  height: 7px;
+  border-radius: 2px;
+  background: linear-gradient(var(--accent), var(--accent-2));
+  animation: hero-scroll 1.6s ease-in-out infinite;
+}
+@keyframes hero-scroll {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  70% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* ---------- Светлая тема: текст ---------- */
+[data-theme="light"] .hero__title {
+  color: var(--text);
+}
+[data-theme="light"] .hero__text {
+  color: var(--muted);
+}
+
+/* ---------- Мягкая светлая палитра ----------
+   Держим здесь, чтобы гарантированно перекрыть base.css.
+   (Основное место для переменных — base.css, здесь — страховка.) */
+[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f1ebf4;
+  --bg-soft: #eae3ee;
+  --surface: #faf7fb;
+  --text: #3a2d47;
+  --muted: #716582;
+  --accent: #d9489d;
+  --accent-strong: #c23383;
+  --accent-2: #7c4dea;
+  --accent-soft: rgba(217, 72, 157, 0.1);
+  --border: #dcd0e4;
+  --card-border: #e4d3e0;
+  --card-shadow: 0 8px 24px rgba(90, 60, 110, 0.08);
+  --glow: 0 4px 14px rgba(217, 72, 157, 0.18);
+  --header-bg: rgba(241, 235, 244, 0.85);
+  --error: #d93a46;
+}

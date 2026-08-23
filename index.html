@@ -1,0 +1,962 @@
+<!doctype html>
+<html lang="ru" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+
+    <title>
+      Сюжетные ИИ-ролики и мультфильмы для бренда — студия your.story
+    </title>
+    <meta
+      name="description"
+      content="Превращаю идеи в живые мультики: сюжетные ИИ-ролики, персонажи и сериалы для брендов. От идеи до готового ролика под ключ."
+    />
+    <meta
+      name="keywords"
+      content="ИИ-ролики, ИИ-мультфильмы, рекламные ролики нейросеть, сюжетная реклама, AI creator"
+    />
+    <link rel="canonical" href="https://yourstory.ru/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:site_name" content="your.story" />
+    <meta
+      property="og:title"
+      content="Сюжетные ИИ-ролики, которые смотрят до конца"
+    />
+    <meta
+      property="og:description"
+      content="Реклама, которая выглядит как история: продукт внутри сюжета, постоянные персонажи, серийный прогрев."
+    />
+    <meta property="og:url" content="https://yourstory.ru/" />
+    <meta property="og:image" content="https://yourstory.ru/img/og-cover.jpg" />
+
+    <meta
+      name="theme-color"
+      content="#0b0712"
+      media="(prefers-color-scheme: dark)"
+    />
+    <meta
+      name="theme-color"
+      content="#faf7fb"
+      media="(prefers-color-scheme: light)"
+    />
+    <link rel="icon" type="image/svg+xml" href="img/logo/favicon.svg" />
+
+    <script>
+      (function () {
+        try {
+          if (localStorage.getItem("your-story-theme") === "light")
+            document.documentElement.setAttribute("data-theme", "light");
+        } catch (e) {}
+      })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "your.story — студия сюжетных ИИ-роликов",
+        "description": "Создание сюжетных ИИ-роликов, мультфильмов и сериалов для брендов и экспертов.",
+        "url": "https://yourstory.ru/",
+        "image": "https://yourstory.ru/img/logo/logo.svg",
+        "priceRange": "₽₽",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Пакеты услуг",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "price": "7000",
+              "priceCurrency": "RUB",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Ролик-знакомство, до 15 секунд"
+              }
+            },
+            {
+              "@type": "Offer",
+              "price": "15000",
+              "priceCurrency": "RUB",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Рекламная история, 30–45 секунд"
+              }
+            },
+            {
+              "@type": "Offer",
+              "price": "35000",
+              "priceCurrency": "RUB",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Мини-сериал из 3 серий"
+              }
+            }
+          ]
+        }
+      }
+    </script>
+  </head>
+
+  <body class="page">
+    <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+    <header class="header">
+      <div class="header__inner">
+        <a class="header__logo" href="#hero">
+          <img
+            class="header__logo-icon"
+            src="img/logo/logo.svg"
+            alt="Логотип студии сюжетных ИИ-роликов your.story"
+            width="38"
+            height="38"
+          />
+          <span class="header__logo-text">your.story</span>
+        </a>
+
+        <nav class="header__nav" aria-label="Основная навигация">
+          <div class="menu" id="main-menu">
+            <ul class="menu__list">
+              <li class="menu__item">
+                <a class="menu__link" href="#why">Почему сюжет</a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="#packages">Пакеты</a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="#works">Работы</a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="#results">Результаты</a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="#faq">FAQ</a>
+              </li>
+            </ul>
+            <a class="menu__cta button button--primary" href="#booking"
+              >Обсудить проект</a
+            >
+          </div>
+        </nav>
+
+        <div class="header__actions">
+          <button
+            class="theme-toggle"
+            type="button"
+            data-theme-toggle
+            aria-pressed="false"
+            aria-label="Переключить светлую/тёмную тему"
+          >
+            <svg
+              class="theme-toggle__icon theme-toggle__icon--sun"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <circle
+                cx="12"
+                cy="12"
+                r="4.5"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+              <path
+                d="M12 2.5V5M12 19v2.5M2.5 12H5M19 12h2.5M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+            <svg
+              class="theme-toggle__icon theme-toggle__icon--moon"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+
+          <button
+            class="burger"
+            type="button"
+            aria-label="Открыть меню"
+            aria-expanded="false"
+            aria-controls="main-menu"
+          >
+            <span class="burger__line"></span><span class="burger__line"></span
+            ><span class="burger__line"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="page__main" id="main">
+      <!-- ================= HERO ================= -->
+      <section class="hero" id="hero">
+        <div class="hero__bg" aria-hidden="true"></div>
+
+        <div class="hero__inner">
+          <div class="hero__top">
+            <h1 class="hero__title">
+              Превращаю идеи<br />в живые
+              <span class="hero__accent">мультики</span>
+            </h1>
+          </div>
+
+          <div class="hero__actions">
+            <a class="button button--primary" href="#booking"
+              >Обсудить проект</a
+            >
+            <a class="button button--ghost" href="#works">Смотреть проекты →</a>
+          </div>
+        </div>
+
+        <a class="hero__scroll" href="#why">
+          <span class="hero__mouse" aria-hidden="true"></span>
+          Листайте вниз
+        </a>
+      </section>
+
+      <!-- ================= ПОЧЕМУ СЮЖЕТ ================= -->
+      <section class="section section--alt benefits" id="why">
+        <div class="section__inner">
+          <header class="section__header">
+            <h2 class="section__title">Почему именно сюжетные ролики</h2>
+            <p class="section__subtitle">
+              Обычную рекламу пролистывают. Истории — досматривают и пересылают
+              друзьям
+            </p>
+          </header>
+          <div class="benefits__list">
+            <article class="benefit-card">
+              <span class="benefit-card__icon" aria-hidden="true">🎬</span>
+              <h3 class="benefit-card__title">Нативная интеграция</h3>
+              <p class="benefit-card__text">
+                Товар или услуга встроены прямо в сюжет — реклама воспринимается
+                органично, а не как баннер.
+              </p>
+            </article>
+            <article class="benefit-card">
+              <span class="benefit-card__icon" aria-hidden="true">❤️</span>
+              <h3 class="benefit-card__title">Эмоции и запоминаемость</h3>
+              <p class="benefit-card__text">
+                Истории и персонажи вызывают эмоции — такой контент лучше
+                запоминается и вызывает доверие.
+              </p>
+            </article>
+            <article class="benefit-card">
+              <span class="benefit-card__icon" aria-hidden="true">⏱</span>
+              <h3 class="benefit-card__title">Удержание внимания</h3>
+              <p class="benefit-card__text">
+                Сюжет заставляет зрителя смотреть ролик до конца и ждать
+                продолжения.
+              </p>
+            </article>
+            <article class="benefit-card">
+              <span class="benefit-card__icon" aria-hidden="true">🔥</span>
+              <h3 class="benefit-card__title">Вирусный потенциал</h3>
+              <p class="benefit-card__text">
+                Жизненные, смешные, драматичные и провокационные ситуации,
+                которыми хочется делиться.
+              </p>
+            </article>
+            <article class="benefit-card">
+              <span class="benefit-card__icon" aria-hidden="true">📺</span>
+              <h3 class="benefit-card__title">Серийный прогрев</h3>
+              <p class="benefit-card__text">
+                Один сюжет делится на серии: интрига перед запуском, продукт
+                внутри, продолжение после старта продаж.
+              </p>
+            </article>
+            <article class="benefit-card">
+              <span class="benefit-card__icon" aria-hidden="true">🧠</span>
+              <h3 class="benefit-card__title">Узнаваемость бренда</h3>
+              <p class="benefit-card__text">
+                Постоянные персонажи и визуальный стиль ассоциируются именно с
+                вашим брендом.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ФОРМАТЫ ================= -->
+      <section class="section formats" id="formats">
+        <div class="section__inner">
+          <header class="section__header">
+            <h2 class="section__title">Форматы работы</h2>
+            <p class="section__subtitle">
+              От одного ролика до целой бренд-вселенной
+            </p>
+          </header>
+          <div class="formats__list">
+            <article class="format-card">
+              <span class="format-card__icon" aria-hidden="true">🎥</span>
+              <h3 class="format-card__title">Рекламный ИИ-ролик</h3>
+              <p class="format-card__text">
+                Короткий сюжетный ролик с интеграцией продукта — для рекламы,
+                соцсетей и запуска.
+              </p>
+            </article>
+            <article class="format-card">
+              <span class="format-card__icon" aria-hidden="true">🎞</span>
+              <h3 class="format-card__title">ИИ-мультфильм</h3>
+              <p class="format-card__text">
+                Анимационная история в уникальном стиле — для брендов, экспертов
+                и детских товаров.
+              </p>
+            </article>
+            <article class="format-card">
+              <span class="format-card__icon" aria-hidden="true">📺</span>
+              <h3 class="format-card__title">Сериал из ИИ-роликов</h3>
+              <p class="format-card__text">
+                Несколько серий с общими персонажами — для прогрева и
+                долгосрочного вовлечения.
+              </p>
+            </article>
+            <article class="format-card">
+              <span class="format-card__icon" aria-hidden="true">🧍</span>
+              <h3 class="format-card__title">Персонаж бренда</h3>
+              <p class="format-card__text">
+                Герой, который представляет продукт, ведёт соцсети и появляется
+                в рекламе.
+              </p>
+            </article>
+            <article class="format-card">
+              <span class="format-card__icon" aria-hidden="true">✍️</span>
+              <h3 class="format-card__title">Сценарий и идея</h3>
+              <p class="format-card__text">
+                Нет задумки? Придумаю концепцию, сюжет, персонажей и подачу под
+                вашу задачу.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ПАКЕТЫ ================= -->
+      <section class="section section--alt packages" id="packages">
+        <div class="section__inner">
+          <header class="section__header">
+            <h2 class="section__title">Пакеты и цены</h2>
+            <p class="section__subtitle">
+              Понятная стоимость: короткий ролик для теста или сериал для
+              прогрева
+            </p>
+          </header>
+          <div class="packages__list">
+            <article class="package-card">
+              <h3 class="package-card__title">Ролик-знакомство</h3>
+              <p class="package-card__desc">
+                Первый тест формата, анонс или короткая реклама.
+              </p>
+              <ul class="package-card__list">
+                <li>бриф и анализ задачи</li>
+                <li>идея и короткий сценарий</li>
+                <li>сюжетный ролик до 15 секунд</li>
+                <li>визуальный стиль под задачу</li>
+                <li>2 правки включены</li>
+              </ul>
+              <p class="package-card__time">Срок: 2–4 дня</p>
+              <p class="package-card__price">от 7 000 ₽</p>
+              <a
+                class="package-card__button button button--ghost"
+                href="#booking"
+                >Заказать ролик</a
+              >
+            </article>
+
+            <article class="package-card package-card--featured">
+              <h3 class="package-card__title">Продукт внутри сюжета</h3>
+              <p class="package-card__desc">
+                Реклама продукта, услуги, личного бренда или запуска.
+              </p>
+              <ul class="package-card__list">
+                <li>глубокий бриф и разработка идеи</li>
+                <li>сценарий с интеграцией продукта</li>
+                <li>ролик 30–45 секунд</li>
+                <li>персонажи или визуальный стиль</li>
+                <li>адаптация под TG / VK / YouTube</li>
+                <li>2 правки включены</li>
+              </ul>
+              <p class="package-card__time">Срок: 4–7 дней</p>
+              <p class="package-card__price">от 15 000 ₽</p>
+              <a
+                class="package-card__button button button--primary"
+                href="#booking"
+                >Обсудить проект</a
+              >
+            </article>
+
+            <article class="package-card">
+              <h3 class="package-card__title">Мини-сериал для прогрева</h3>
+              <p class="package-card__desc">
+                Регулярный выход к аудитории с общими героями.
+              </p>
+              <ul class="package-card__list">
+                <li>концепция сериала</li>
+                <li>3 серии по 15–30 секунд</li>
+                <li>постоянные персонажи</li>
+                <li>единый визуальный стиль</li>
+                <li>сюжет с продолжением</li>
+                <li>2 правки включены</li>
+              </ul>
+              <p class="package-card__time">Срок: 7–14 дней</p>
+              <p class="package-card__price">от 35 000 ₽</p>
+              <a
+                class="package-card__button button button--ghost"
+                href="#booking"
+                >Заказать сериал</a
+              >
+            </article>
+
+            <article class="package-card package-card--vip">
+              <h3 class="package-card__title">Бренд-вселенная под ключ</h3>
+              <p class="package-card__desc">
+                Персонаж бренда, история мира, контент-план и 5 роликов с
+                рекомендациями по публикациям.
+              </p>
+              <p class="package-card__price">от 70 000 ₽</p>
+              <a
+                class="package-card__button button button--ghost"
+                href="#booking"
+                >Обсудить задачу</a
+              >
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= РАБОТЫ ================= -->
+      <section class="section works" id="works">
+        <div class="section__inner">
+          <header class="section__header">
+            <h2 class="section__title">Примеры работ</h2>
+            <p class="section__subtitle">
+              Разные стили: от мультяшных до реалистичных и кинематографичных
+            </p>
+          </header>
+          <div class="works__list">
+            <figure class="work-card">
+              <img
+                class="work-card__image"
+                src="img/works/work-1.jpg"
+                alt="Кадр из ИИ-мультфильма для кофейни, мультяшный стиль"
+                loading="lazy"
+                width="600"
+                height="800"
+              />
+              <figcaption class="work-card__caption">
+                <span class="work-card__title"
+                  >Кофейня: история одного утра</span
+                ><span class="work-card__tag">мультяшный</span>
+              </figcaption>
+            </figure>
+            <figure class="work-card">
+              <img
+                class="work-card__image"
+                src="img/works/work-2.jpg"
+                alt="Кадр из ИИ-сериала «Блеск» для косметического бренда"
+                loading="lazy"
+                width="600"
+                height="800"
+              />
+              <figcaption class="work-card__caption">
+                <span class="work-card__title">Косметика: сериал «Блеск»</span
+                ><span class="work-card__tag">сериал</span>
+              </figcaption>
+            </figure>
+            <figure class="work-card">
+              <img
+                class="work-card__image"
+                src="img/works/work-3.jpg"
+                alt="Кадр из комедийного ИИ-ролика для доставки еды"
+                loading="lazy"
+                width="600"
+                height="800"
+              />
+              <figcaption class="work-card__caption">
+                <span class="work-card__title">Доставка еды: комедия</span
+                ><span class="work-card__tag">комедия</span>
+              </figcaption>
+            </figure>
+            <figure class="work-card">
+              <img
+                class="work-card__image"
+                src="img/works/work-4.jpg"
+                alt="Кадр реалистичного ИИ-ролика для банка"
+                loading="lazy"
+                width="600"
+                height="800"
+              />
+              <figcaption class="work-card__caption">
+                <span class="work-card__title">Банк: реалистичный ролик</span
+                ><span class="work-card__tag">реализм</span>
+              </figcaption>
+            </figure>
+            <figure class="work-card">
+              <img
+                class="work-card__image"
+                src="img/works/work-5.jpg"
+                alt="Кадр из ИИ-сказки для детского бренда"
+                loading="lazy"
+                width="600"
+                height="800"
+              />
+              <figcaption class="work-card__caption">
+                <span class="work-card__title">Детский бренд: сказка</span
+                ><span class="work-card__tag">сказка</span>
+              </figcaption>
+            </figure>
+            <figure class="work-card">
+              <img
+                class="work-card__image"
+                src="img/works/work-6.jpg"
+                alt="Кадр из ИИ-ролика с интригой перед запуском курса"
+                loading="lazy"
+                width="600"
+                height="800"
+              />
+              <figcaption class="work-card__caption">
+                <span class="work-card__title">Курс: запуск через интригу</span
+                ><span class="work-card__tag">запуск</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= РЕЗУЛЬТАТЫ ================= -->
+      <section class="section section--alt results" id="results">
+        <div class="section__inner results__grid">
+          <div class="results__content">
+            <h2 class="section__title">Почему выбирают меня</h2>
+            <ul class="results__reasons">
+              <li class="results__reason">
+                🎬 Сюжет прежде всего: конфликт, эмоция, развитие и финал,
+                который удерживает зрителя.
+              </li>
+              <li class="results__reason">
+                ⚡ ИИ-продакшен значительно быстрее классического производства
+                роликов.
+              </li>
+              <li class="results__reason">
+                💛 Каждый проект — под конкретную задачу, аудиторию, продукт и
+                стиль клиента.
+              </li>
+              <li class="results__reason">
+                👩 В сериалах сохраняю внешность, стиль и характер героев от
+                серии к серии.
+              </li>
+              <li class="results__reason">
+                🎨 Стили: от мультяшных до реалистичных и кинематографичных.
+              </li>
+              <li class="results__reason">
+                ✏️ В стоимость уже входят 2 бесплатные правки по готовому
+                ролику.
+              </li>
+            </ul>
+          </div>
+          <aside class="results__card">
+            <h3 class="results__card-title">Мои результаты в Instagram</h3>
+            <p class="results__card-text">
+              Ежедневно тестирую формат на собственном аккаунте — это не теория,
+              а рабочая практика.
+            </p>
+            <ul class="stats">
+              <li class="stats__item">
+                <span class="stats__value">2 000 000+</span
+                ><span class="stats__label">просмотров у топ-ролика</span>
+              </li>
+              <li class="stats__item">
+                <span class="stats__value">3 000 000+</span
+                ><span class="stats__label">просмотров за 30 дней</span>
+              </li>
+              <li class="stats__item">
+                <span class="stats__value">5 600+</span
+                ><span class="stats__label">подписчиков за 3 недели</span>
+              </li>
+              <li class="stats__item">
+                <span class="stats__value">10 000 000+</span
+                ><span class="stats__label">суммарных просмотров</span>
+              </li>
+            </ul>
+            <p class="results__note">
+              Результаты зависят от ниши, продукта, регулярности публикаций и
+              алгоритмов площадок.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ================= ЭТАПЫ ================= -->
+      <section class="section steps" id="steps">
+        <div class="section__inner">
+          <header class="section__header">
+            <h2 class="section__title">Как проходит работа</h2>
+            <p class="section__subtitle">
+              От заявки до готовых роликов — прозрачно и по шагам
+            </p>
+          </header>
+          <ol class="steps__list">
+            <li class="step">
+              <span class="step__number">1</span>
+              <h3 class="step__title">Заявка</h3>
+              <p class="step__text">
+                Вы пишете в Telegram или VK и рассказываете о задаче.
+              </p>
+            </li>
+            <li class="step">
+              <span class="step__number">2</span>
+              <h3 class="step__title">Бриф</h3>
+              <p class="step__text">
+                Обсуждаем продукт, аудиторию, формат, длительность и цели.
+              </p>
+            </li>
+            <li class="step">
+              <span class="step__number">3</span>
+              <h3 class="step__title">Идея и сценарий</h3>
+              <p class="step__text">
+                Нет идеи — придумаю сюжет, персонажей и подачу с нуля.
+              </p>
+            </li>
+            <li class="step">
+              <span class="step__number">4</span>
+              <h3 class="step__title">Производство</h3>
+              <p class="step__text">
+                Создаю визуальный стиль, персонажей, ролики и монтаж.
+              </p>
+            </li>
+            <li class="step">
+              <span class="step__number">5</span>
+              <h3 class="step__title">Правки</h3>
+              <p class="step__text">
+                2 бесплатные правки уже входят в стоимость.
+              </p>
+            </li>
+            <li class="step">
+              <span class="step__number">6</span>
+              <h3 class="step__title">Сдача проекта</h3>
+              <p class="step__text">
+                Вы получаете ролики в нужных форматах для публикации.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ================= FAQ ================= -->
+      <section class="section section--alt faq" id="faq">
+        <div class="section__inner">
+          <header class="section__header">
+            <h2 class="section__title">Частые вопросы</h2>
+          </header>
+          <div class="faq__list">
+            <details class="faq-item">
+              <summary class="faq-item__question">
+                Можно ли заказать ролик, если у меня нет идеи?
+              </summary>
+              <div class="faq-item__answer">
+                <p>
+                  Да. Расскажите о продукте и задаче — я помогу придумать сюжет,
+                  персонажей и формат.
+                </p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-item__question">
+                Сколько длится ролик?
+              </summary>
+              <div class="faq-item__answer">
+                <p>
+                  От 15 секунд. Также есть форматы 30, 45 и более секунд; для
+                  сериалов длительность обсуждается индивидуально.
+                </p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-item__question">
+                Сколько правок входит в стоимость?
+              </summary>
+              <div class="faq-item__answer">
+                <p>
+                  2 бесплатные правки по готовому ролику или мультфильму.
+                  Дополнительные правки оплачиваются отдельно.
+                </p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-item__question">
+                Можно ли использовать ролик в рекламе?
+              </summary>
+              <div class="faq-item__answer">
+                <p>
+                  Да, условия использования обсуждаются заранее. Если ролик
+                  нужен для коммерческого использования или запуска — укажите
+                  это в заявке.
+                </p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-item__question">
+                Вы создаёте только мультики?
+              </summary>
+              <div class="faq-item__answer">
+                <p>
+                  Нет. Стили разные: мультяшный, реалистичный,
+                  кинематографичный, сказочный, рекламный и другие.
+                </p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-item__question">
+                Персонажи будут одинаковыми во всех сериях?
+              </summary>
+              <div class="faq-item__answer">
+                <p>
+                  Да. В сериалах я сохраняю внешность, стиль и характер героев,
+                  чтобы зритель узнавал их от серии к серии.
+                </p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-item__question">
+                Какие материалы нужны от меня?
+              </summary>
+              <div class="faq-item__answer">
+                <p>
+                  Обычно достаточно информации о продукте, аудитории и цели
+                  рекламы плюс примеры стиля, если они есть.
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ФОРМА ================= -->
+      <section class="section booking" id="booking">
+        <div class="section__inner">
+          <header class="section__header">
+            <h2 class="section__title">Обсудим ваш проект?</h2>
+            <p class="section__subtitle">
+              Расскажите, что хотите продвигать — если идеи нет, придумаем сюжет
+              вместе
+            </p>
+          </header>
+
+          <form class="form" data-form novalidate>
+            <div class="form__grid">
+              <div class="form__group">
+                <label class="form__label" for="field-name"
+                  >Ваше имя
+                  <span class="form__required" aria-hidden="true"
+                    >*</span
+                  ></label
+                >
+                <input
+                  class="form__input"
+                  id="field-name"
+                  name="name"
+                  type="text"
+                  placeholder="Анна"
+                  autocomplete="name"
+                  data-validate="name"
+                  required
+                />
+                <p class="form__error" id="error-name" hidden></p>
+              </div>
+
+              <div class="form__group">
+                <label class="form__label" for="field-contact"
+                  >Телефон или @ник в Telegram
+                  <span class="form__required" aria-hidden="true"
+                    >*</span
+                  ></label
+                >
+                <input
+                  class="form__input"
+                  id="field-contact"
+                  name="contact"
+                  type="text"
+                  placeholder="+7 (___) ___-__-__ или @username"
+                  data-validate="contact"
+                  required
+                />
+                <p class="form__error" id="error-contact" hidden></p>
+              </div>
+
+              <div class="form__group form__group--full">
+                <label class="form__label" for="field-product"
+                  >Что продвигаем
+                  <span class="form__required" aria-hidden="true"
+                    >*</span
+                  ></label
+                >
+                <select
+                  class="form__select"
+                  id="field-product"
+                  name="product"
+                  data-validate="product"
+                  required
+                >
+                  <option value="" selected disabled>Выберите вариант</option>
+                  <option value="product">Продукт или товар</option>
+                  <option value="service">Услугу</option>
+                  <option value="personal">Личный бренд</option>
+                  <option value="course">Курс или обучение</option>
+                  <option value="other">Другое</option>
+                </select>
+                <p class="form__error" id="error-product" hidden></p>
+              </div>
+
+              <div class="form__group form__group--full">
+                <label class="form__label" for="field-format">Формат</label>
+                <select class="form__select" id="field-format" name="format">
+                  <option value="" selected>Пока не знаю — подскажите</option>
+                  <option value="single">Один ролик</option>
+                  <option value="serial">Мини-сериал</option>
+                </select>
+              </div>
+
+              <div class="form__group form__group--full">
+                <label class="form__label" for="field-comment"
+                  >Комментарий</label
+                >
+                <textarea
+                  class="form__textarea"
+                  id="field-comment"
+                  name="comment"
+                  placeholder="Пара слов о продукте, аудитории и желаемых сроках…"
+                  data-validate="comment"
+                ></textarea>
+                <p class="form__error" id="error-comment" hidden></p>
+              </div>
+
+              <div class="form__group form__group--full">
+                <label class="form__consent">
+                  <input
+                    class="form__checkbox"
+                    type="checkbox"
+                    name="consent"
+                    data-validate="consent"
+                  />
+                  <span
+                    >Соглашаюсь на обработку персональных данных
+                    <span class="form__required" aria-hidden="true"
+                      >*</span
+                    ></span
+                  >
+                </label>
+                <p class="form__error" id="error-consent" hidden></p>
+              </div>
+            </div>
+
+            <button
+              class="form__submit button button--primary"
+              type="submit"
+              data-form-submit
+              disabled
+            >
+              Отправить заявку
+            </button>
+            <p class="form__note">
+              Отвечаю в течение дня. Если идеи пока нет — ничего страшного,
+              подберём формат вместе 🤍
+            </p>
+
+            <div class="form__success" data-form-success role="status" hidden>
+              ✦ Заявка отправлена! Я свяжусь с вами и предложу сюжет под вашу
+              задачу.
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="contacts">
+      <div class="footer__inner">
+        <div class="footer__grid">
+          <div class="footer__brand">
+            <a class="footer__logo" href="#hero">
+              <img
+                src="img/logo/logo.svg"
+                alt="Логотип студии your.story"
+                width="34"
+                height="34"
+              />
+              <span>your.story</span>
+            </a>
+            <p class="footer__tagline">
+              Сюжетные ИИ-ролики и мультфильмы, в которых реклама становится
+              историей ✦
+            </p>
+          </div>
+
+          <nav class="footer__nav" aria-label="Навигация в подвале">
+            <h3 class="footer__title">Навигация</h3>
+            <ul class="footer__list">
+              <li>
+                <a class="footer__link" href="#packages">Пакеты и цены</a>
+              </li>
+              <li><a class="footer__link" href="#works">Примеры работ</a></li>
+              <li><a class="footer__link" href="#results">Результаты</a></li>
+              <li>
+                <a class="footer__link" href="#booking">Оставить заявку</a>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="footer__contacts">
+            <h3 class="footer__title">Связаться</h3>
+            <address class="footer__address">
+              Москва, ул. Тверская, 12, студия 4
+            </address>
+            <a class="footer__link" href="tel:+79991234567"
+              >+7 (999) 123-45-67</a
+            ><br />
+            <a class="footer__link" href="mailto:hello@yourstory.ru"
+              >hello@yourstory.ru</a
+            >
+            <p class="footer__schedule">Ежедневно с 10:00 до 21:00</p>
+          </div>
+        </div>
+
+        <div class="footer__bottom">
+          <p class="footer__copy">
+            © <span data-year>2026</span> your.story ·
+            <a class="footer__legal" href="privacy.html"
+              >Политика конфиденциальности</a
+            >
+          </p>
+          <p class="footer__disclaimer">
+            Instagram принадлежит Meta, признанной экстремистской и запрещённой
+            на территории РФ.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
