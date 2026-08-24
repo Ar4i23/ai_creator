@@ -90,10 +90,42 @@
   .hero__bg {
     filter: blur(5px);
     transform: scale(1.03); /* прячет размытые края */
+    --bg-scale: 1.03; /* прячет размытые края, дружит с анимацией зума */
+    filter: blur(5px);
   }
   .hero__inner {
     align-items: center;
     text-align: center;
+  }
+
+  /* на телефонах секция снова «воздушная» — скролл там норм */
+  .benefits {
+    padding-block: 56px;
+  }
+  .benefit-card {
+    height: clamp(230px, 60vw, 340px);
+  }
+  .benefit-card__img {
+    height: auto;
+    aspect-ratio: 16 / 10;
+  }
+  .benefit-card__title {
+    font-size: 1.02rem;
+    padding: 16px 20px 0;
+  }
+  .benefit-card__text {
+    font-size: 0.93rem;
+    padding: 8px 20px 20px;
+  }
+  .benefits__banner-icon {
+    width: 84px;
+    height: 84px;
+  }
+  .benefits__banner-content h3 {
+    font-size: 1.2rem;
+  }
+  .benefits__banner-content p {
+    font-size: 0.95rem;
   }
 
   .benefits__list,
@@ -120,6 +152,17 @@
   .section {
     padding-block: 56px;
   }
+  .benefits__banner {
+    flex-direction: column;
+    text-align: center;
+  }
+  .benefits__banner-content {
+    text-align: center;
+  }
+  .benefits__banner-img {
+    max-width: 240px;
+    margin: 0 auto;
+  }
   .benefits__list,
   .works__list,
   .steps__list {
@@ -143,12 +186,27 @@
   .footer__inner {
     padding-inline: 16px;
   }
-  .formats__list {
+  /* .formats__list {
     grid-template-columns: 1fr;
   }
   .formats__list .format-card:last-child {
     grid-column: auto;
     width: auto;
+  } */
+  .format-card[data-pos="1"] {
+    transform: translateX(62%) scale(0.85) rotateY(-10deg);
+  }
+  .format-card[data-pos="-1"] {
+    transform: translateX(-62%) scale(0.85) rotateY(10deg);
+  }
+  .format-card[data-pos="2"],
+  .format-card[data-pos="-2"] {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .carousel__arrow {
+    width: 40px;
+    height: 40px;
   }
 
   .hero {

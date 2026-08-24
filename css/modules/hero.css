@@ -11,7 +11,7 @@
   position: relative;
   min-height: 100svh;
   display: flex;
-  padding: 50px 16px 96px;
+  padding: 0 16px;
   overflow: hidden;
   background:
     radial-gradient(rgba(160, 107, 255, 0.12) 1px, transparent 1.5px) 0 0 / 28px
@@ -19,15 +19,15 @@
     var(--bg);
 }
 
-/* ---------- Фон сцены ---------- */
 .hero__bg {
+  --bg-scale: 1;
   position: absolute;
   inset: 0;
   background: url("../../img/hero.png") var(--hero-x) var(--hero-y) / cover
     no-repeat;
-  transition:
-    filter 0.4s ease,
-    transform 0.4s ease;
+  transform: scale(var(--bg-scale));
+  transition: filter 0.4s ease;
+  animation: hero-zoom 1.1s cubic-bezier(0.22, 0.9, 0.32, 1) backwards;
 }
 
 /* Светлая тема — своя сцена */
@@ -61,16 +61,16 @@
   background:
     linear-gradient(
       90deg,
-      rgba(241, 235, 244, 0.6) 0%,
-      rgba(241, 235, 244, 0.28) 45%,
-      rgba(241, 235, 244, 0) 72%
+      rgba(221, 212, 227, 0.72) 0%,
+      rgba(221, 212, 227, 0.38) 45%,
+      rgba(221, 212, 227, 0) 72%
     ),
     linear-gradient(
       180deg,
-      rgba(241, 235, 244, 0.5) 0%,
-      rgba(241, 235, 244, 0.12) 30%,
-      rgba(241, 235, 244, 0.08) 60%,
-      rgba(241, 235, 244, 0.6) 100%
+      rgba(221, 212, 227, 0.62) 0%,
+      rgba(221, 212, 227, 0.22) 30%,
+      rgba(221, 212, 227, 0.16) 60%,
+      rgba(221, 212, 227, 0.78) 100%
     );
 }
 
@@ -140,7 +140,7 @@
 .hero__scroll {
   position: absolute;
   left: 50%;
-  bottom: 80px;
+  bottom: 0;
   transform: translateX(-50%);
   z-index: 2;
   display: flex;
@@ -198,21 +198,92 @@
 /* ---------- Мягкая светлая палитра ----------
    Держим здесь, чтобы гарантированно перекрыть base.css.
    (Основное место для переменных — base.css, здесь — страховка.) */
-[data-theme="light"] {
-  color-scheme: light;
-  --bg: #f1ebf4;
-  --bg-soft: #eae3ee;
-  --surface: #faf7fb;
-  --text: #3a2d47;
-  --muted: #716582;
-  --accent: #d9489d;
-  --accent-strong: #c23383;
-  --accent-2: #7c4dea;
-  --accent-soft: rgba(217, 72, 157, 0.1);
-  --border: #dcd0e4;
-  --card-border: #e4d3e0;
-  --card-shadow: 0 8px 24px rgba(90, 60, 110, 0.08);
-  --glow: 0 4px 14px rgba(217, 72, 157, 0.18);
-  --header-bg: rgba(241, 235, 244, 0.85);
-  --error: #d93a46;
+/* ---------- Светлая тема: контрастный hero ---------- */
+[data-theme="light"] .hero__tagline {
+  color: #b3186f;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+[data-theme="light"] .hero__title {
+  color: #241a33; /* глубокий сливовый, почти чёрный */
+  text-shadow: 0 2px 22px rgba(255, 255, 255, 0.9); /* белое гало отделяет от сцены */
+}
+
+[data-theme="light"] .hero__accent {
+  background: linear-gradient(
+    90deg,
+    #c2247f,
+    #6d3bd9
+  ); /* сочнее, чем в тёмной */
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 2px 12px rgba(255, 255, 255, 0.9));
+}
+
+[data-theme="light"] .hero__text {
+  color: #463a58;
+  text-shadow: 0 1px 14px rgba(255, 255, 255, 0.8);
+}
+
+/* Мышка и подпись — тёмные, читаются на светлом */
+[data-theme="light"] .hero__scroll {
+  color: #463a58;
+}
+[data-theme="light"] .hero__mouse {
+  border-color: #463a58;
+}
+[data-theme="light"] .hero__mouse::after {
+  background: linear-gradient(#c2247f, #6d3bd9);
+  box-shadow: 0 0 8px rgba(194, 36, 127, 0.6);
+}
+/* ---------- Входные анимации hero ---------- */
+@keyframes hero-zoom {
+  from {
+    transform: scale(calc(var(--bg-scale) * 0.7));
+    opacity: 0;
+  }
+  to {
+    transform: scale(var(--bg-scale));
+    opacity: 1;
+  }
+}
+
+/* заголовок падает сверху */
+.hero__top {
+  animation: hero-drop 0.9s 0.25s cubic-bezier(0.22, 0.9, 0.32, 1) backwards;
+}
+@keyframes hero-drop {
+  from {
+    transform: translateY(-60px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+/* кнопки всплывают снизу */
+.hero__actions {
+  animation: hero-rise 0.9s 0.45s cubic-bezier(0.22, 0.9, 0.32, 1) backwards;
+}
+@keyframes hero-rise {
+  from {
+    transform: translateY(60px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+/* мышка проявляется последней */
+.hero__scroll {
+  animation: hero-fade 1s 1s ease backwards;
+}
+@keyframes hero-fade {
+  from {
+    opacity: 0;
+  }
 }

@@ -108,7 +108,7 @@
     </script>
   </head>
 
-  <body class="page">
+  <body class="page has-hero">
     <a class="skip-link" href="#main">Перейти к содержимому</a>
 
     <header class="header">
@@ -238,58 +238,100 @@
       </section>
 
       <!-- ================= ПОЧЕМУ СЮЖЕТ ================= -->
-      <section class="section section--alt benefits" id="why">
+      <section class="section section--alt benefits" id="why" data-reveal-group>
         <div class="section__inner">
-          <header class="section__header">
+          <header class="section__header" data-reveal="top">
             <h2 class="section__title">Почему именно сюжетные ролики</h2>
             <p class="section__subtitle">
               Обычную рекламу пролистывают. Истории — досматривают и пересылают
               друзьям
             </p>
           </header>
+
           <div class="benefits__list">
-            <article class="benefit-card">
-              <span class="benefit-card__icon" aria-hidden="true">🎬</span>
+            <!-- 1-й ряд: въезжают справа -->
+            <article
+              class="benefit-card"
+              data-reveal="right"
+              style="--d: 0.15s"
+            >
+              <img
+                class="benefit-card__img"
+                src="img/benefits/native_integration.png"
+                alt=""
+                loading="lazy"
+              />
               <h3 class="benefit-card__title">Нативная интеграция</h3>
               <p class="benefit-card__text">
                 Товар или услуга встроены прямо в сюжет — реклама воспринимается
                 органично, а не как баннер.
               </p>
             </article>
-            <article class="benefit-card">
-              <span class="benefit-card__icon" aria-hidden="true">❤️</span>
+            <article class="benefit-card" data-reveal="right" style="--d: 0.3s">
+              <img
+                class="benefit-card__img"
+                src="img/benefits/emotions_memory.png"
+                alt=""
+                loading="lazy"
+              />
               <h3 class="benefit-card__title">Эмоции и запоминаемость</h3>
               <p class="benefit-card__text">
                 Истории и персонажи вызывают эмоции — такой контент лучше
                 запоминается и вызывает доверие.
               </p>
             </article>
-            <article class="benefit-card">
-              <span class="benefit-card__icon" aria-hidden="true">⏱</span>
+            <article
+              class="benefit-card"
+              data-reveal="right"
+              style="--d: 0.45s"
+            >
+              <img
+                class="benefit-card__img"
+                src="img/benefits/attention_retention.png"
+                alt=""
+                loading="lazy"
+              />
               <h3 class="benefit-card__title">Удержание внимания</h3>
               <p class="benefit-card__text">
                 Сюжет заставляет зрителя смотреть ролик до конца и ждать
                 продолжения.
               </p>
             </article>
-            <article class="benefit-card">
-              <span class="benefit-card__icon" aria-hidden="true">🔥</span>
+
+            <!-- 2-й ряд: въезжают слева -->
+            <article class="benefit-card" data-reveal="left" style="--d: 0.1s">
+              <img
+                class="benefit-card__img"
+                src="img/benefits/viral_potential.png"
+                alt=""
+                loading="lazy"
+              />
               <h3 class="benefit-card__title">Вирусный потенциал</h3>
               <p class="benefit-card__text">
                 Жизненные, смешные, драматичные и провокационные ситуации,
                 которыми хочется делиться.
               </p>
             </article>
-            <article class="benefit-card">
-              <span class="benefit-card__icon" aria-hidden="true">📺</span>
+            <article class="benefit-card" data-reveal="left" style="--d: 0.2s">
+              <img
+                class="benefit-card__img"
+                src="img/benefits/serial_warming.png"
+                alt=""
+                loading="lazy"
+              />
               <h3 class="benefit-card__title">Серийный прогрев</h3>
               <p class="benefit-card__text">
                 Один сюжет делится на серии: интрига перед запуском, продукт
                 внутри, продолжение после старта продаж.
               </p>
             </article>
-            <article class="benefit-card">
-              <span class="benefit-card__icon" aria-hidden="true">🧠</span>
+            <article class="benefit-card" data-reveal="left" style="--d: 0.3s">
+              <img
+                class="benefit-card__img"
+                src="img/benefits/brand_recognition.png"
+                alt=""
+                loading="lazy"
+              />
               <h3 class="benefit-card__title">Узнаваемость бренда</h3>
               <p class="benefit-card__text">
                 Постоянные персонажи и визуальный стиль ассоциируются именно с
@@ -297,60 +339,140 @@
               </p>
             </article>
           </div>
+
+          <!-- Баннер: всплывает снизу -->
+          <div class="benefits__banner" data-reveal="bottom" style="--d: 0.45s">
+            <img
+              class="benefits__banner-img"
+              src="img/benefits/story_play.png"
+              alt=""
+              loading="lazy"
+            />
+            <div class="benefits__banner-content">
+              <h3>Истории работают там, где баннеры бессильны</h3>
+              <p>Сюжет цепляет. Зритель досматривает. Бренд запоминается.</p>
+            </div>
+          </div>
         </div>
       </section>
 
       <!-- ================= ФОРМАТЫ ================= -->
-      <section class="section formats" id="formats">
+      <section class="section formats" id="formats" data-reveal-group>
         <div class="section__inner">
-          <header class="section__header">
+          <header class="section__header" data-reveal="top">
             <h2 class="section__title">Форматы работы</h2>
             <p class="section__subtitle">
               От одного ролика до целой бренд-вселенной
             </p>
           </header>
-          <div class="formats__list">
-            <article class="format-card">
-              <span class="format-card__icon" aria-hidden="true">🎥</span>
-              <h3 class="format-card__title">Рекламный ИИ-ролик</h3>
-              <p class="format-card__text">
-                Короткий сюжетный ролик с интеграцией продукта — для рекламы,
-                соцсетей и запуска.
-              </p>
-            </article>
-            <article class="format-card">
-              <span class="format-card__icon" aria-hidden="true">🎞</span>
-              <h3 class="format-card__title">ИИ-мультфильм</h3>
-              <p class="format-card__text">
-                Анимационная история в уникальном стиле — для брендов, экспертов
-                и детских товаров.
-              </p>
-            </article>
-            <article class="format-card">
-              <span class="format-card__icon" aria-hidden="true">📺</span>
-              <h3 class="format-card__title">Сериал из ИИ-роликов</h3>
-              <p class="format-card__text">
-                Несколько серий с общими персонажами — для прогрева и
-                долгосрочного вовлечения.
-              </p>
-            </article>
-            <article class="format-card">
-              <span class="format-card__icon" aria-hidden="true">🧍</span>
-              <h3 class="format-card__title">Персонаж бренда</h3>
-              <p class="format-card__text">
-                Герой, который представляет продукт, ведёт соцсети и появляется
-                в рекламе.
-              </p>
-            </article>
-            <article class="format-card">
-              <span class="format-card__icon" aria-hidden="true">✍️</span>
-              <h3 class="format-card__title">Сценарий и идея</h3>
-              <p class="format-card__text">
-                Нет задумки? Придумаю концепцию, сюжет, персонажей и подачу под
-                вашу задачу.
-              </p>
-            </article>
+
+          <div class="carousel" data-carousel data-reveal="bottom">
+            <button
+              class="carousel__arrow carousel__arrow--prev"
+              type="button"
+              aria-label="Предыдущий формат"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M15 18l-6-6 6-6" />
+              </svg>
+            </button>
+
+            <div class="carousel__viewport">
+              <ul class="carousel__track">
+                <li class="format-card">
+                  <img
+                    class="format-card__img"
+                    src="img/formats/reklamnyy_ai_rolik.png"
+                    alt=""
+                    loading="lazy"
+                  />
+                  <h3 class="format-card__title">Рекламный ИИ-ролик</h3>
+                  <p class="format-card__text">
+                    Короткий сюжетный ролик с интеграцией продукта — для
+                    рекламы, соцсетей и запуска.
+                  </p>
+                </li>
+                <li class="format-card">
+                  <img
+                    class="format-card__img"
+                    src="img/formats/serial_iz_ai_rolikov.png"
+                    alt=""
+                    decoding="async"
+                  />
+                  <h3 class="format-card__title">Сериал из ИИ-роликов</h3>
+                  <p class="format-card__text">
+                    Несколько серий с общими персонажами — для прогрева и
+                    долгосрочного вовлечения.
+                  </p>
+                </li>
+                <li class="format-card">
+                  <img
+                    class="format-card__img"
+                    src="img/formats/ai_multfilm.png"
+                    alt=""
+                    decoding="async"
+                  />
+                  <h3 class="format-card__title">ИИ-мультфильм</h3>
+                  <p class="format-card__text">
+                    Анимационная история в уникальном стиле — для брендов,
+                    экспертов и детских товаров.
+                  </p>
+                </li>
+                <li class="format-card">
+                  <img
+                    class="format-card__img"
+                    src="img/formats/personazh_brenda.png"
+                    alt=""
+                    decoding="async"
+                  />
+                  <h3 class="format-card__title">Персонаж бренда</h3>
+                  <p class="format-card__text">
+                    Герой, который представляет продукт, ведёт соцсети и
+                    появляется в рекламе.
+                  </p>
+                </li>
+                <li class="format-card">
+                  <img
+                    class="format-card__img"
+                    src="img/formats/scenariy_i_ideya.png"
+                    alt=""
+                    decoding="async"
+                  />
+                  <h3 class="format-card__title">Сценарий и идея</h3>
+                  <p class="format-card__text">
+                    Нет задумки? Придумаю концепцию, сюжет, персонажей и подачу
+                    под вашу задачу.
+                  </p>
+                </li>
+              </ul>
+            </div>
+
+            <button
+              class="carousel__arrow carousel__arrow--next"
+              type="button"
+              aria-label="Следующий формат"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M9 6l6 6-6 6" />
+              </svg>
+            </button>
           </div>
+
+          <div class="carousel__dots"></div>
         </div>
       </section>
 
@@ -789,7 +911,7 @@
 
               <div class="form__group">
                 <label class="form__label" for="field-contact"
-                  >Телефон или @ник в Telegram
+                  >Telegram: @ник или номер телефона
                   <span class="form__required" aria-hidden="true"
                     >*</span
                   ></label
@@ -799,13 +921,12 @@
                   id="field-contact"
                   name="contact"
                   type="text"
-                  placeholder="+7 (___) ___-__-__ или @username"
+                  placeholder="@username или +7 (999) 123-45-67"
                   data-validate="contact"
                   required
                 />
                 <p class="form__error" id="error-contact" hidden></p>
               </div>
-
               <div class="form__group form__group--full">
                 <label class="form__label" for="field-product"
                   >Что продвигаем
@@ -833,7 +954,8 @@
               <div class="form__group form__group--full">
                 <label class="form__label" for="field-format">Формат</label>
                 <select class="form__select" id="field-format" name="format">
-                  <option value="" selected>Пока не знаю — подскажите</option>
+                  <option value="" selected disabled>Выберите формат</option>
+                  <option value="unknown">Пока не знаю — подскажите</option>
                   <option value="single">Один ролик</option>
                   <option value="serial">Мини-сериал</option>
                 </select>

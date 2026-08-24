@@ -17,8 +17,11 @@
   grid-template-columns: 1fr 1fr;
 }
 .form__group {
+  position: relative;
   display: grid;
   gap: 6px;
+  align-content: start; /* лейбл и инпут больше не растягиваются */
+  padding-bottom: 35px; /* зарезервированная зона под ошибку — макет не прыгает */
   text-align: center;
 }
 .form__group--full {
@@ -65,9 +68,14 @@
   border-color: var(--error);
 }
 .form__error {
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
   margin: 0;
+  font-size: 0.75rem;
+  line-height: 1.25;
   color: var(--error);
-  font-size: 0.83rem;
 }
 
 .form__consent {
@@ -125,4 +133,51 @@
     transform: scale(1);
     opacity: 1;
   }
+}
+
+/* Автозаполнение не ломает тему */
+.form__input:-webkit-autofill,
+.form__input:-webkit-autofill:hover {
+  -webkit-box-shadow: 0 0 0 1000px
+    color-mix(in srgb, var(--accent-2) 6%, var(--surface)) inset;
+  box-shadow: 0 0 0 1000px
+    color-mix(in srgb, var(--accent-2) 6%, var(--surface)) inset;
+  -webkit-text-fill-color: var(--text);
+  caret-color: var(--text);
+}
+/* Автозаполненное поле в фокусе — с тем же свечением, что и остальные */
+.form__input:-webkit-autofill:focus {
+  -webkit-box-shadow:
+    0 0 0 1000px color-mix(in srgb, var(--accent-2) 6%, var(--surface)) inset,
+    0 0 0 3px var(--accent-soft),
+    0 0 26px rgba(160, 107, 255, 0.45);
+  box-shadow:
+    0 0 0 1000px color-mix(in srgb, var(--accent-2) 6%, var(--surface)) inset,
+    0 0 0 3px var(--accent-soft),
+    0 0 26px rgba(160, 107, 255, 0.45);
+  -webkit-text-fill-color: var(--text);
+  caret-color: var(--text);
+}
+
+/* Плейсхолдер в селекте — цветом подсказки (работает без required) */
+.form__select:required:invalid,
+.form__select:has(option[value=""]:checked) {
+  color: var(--muted);
+}
+
+/* А вот список опций — всегда читабельный */
+.form__select option {
+  color: var(--text);
+  background: var(--surface);
+}
+/* Все подсказки формы — один тон */
+.form__input::placeholder,
+.form__textarea::placeholder {
+  color: var(--muted);
+  opacity: 1;
+}
+
+.form__select:required:invalid,
+.form__select:has(option[value=""]:checked) {
+  color: var(--muted);
 }

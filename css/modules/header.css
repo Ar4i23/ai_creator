@@ -136,3 +136,17 @@ body.is-menu-open::after {
 [data-theme="light"] .theme-toggle__icon--sun {
   display: none;
 }
+.has-hero .header {
+  position: absolute; /* не sticky — уезжает при скролле */
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(11, 7, 18, 0.18); /* почти прозрачная */
+  backdrop-filter: blur(18px) saturate(1.15); /* картинка под шапкой — в блюре */
+  -webkit-backdrop-filter: blur(18px) saturate(1.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+[data-theme="light"] .has-hero .header {
+  background: rgba(241, 235, 244, 0.25);
+  border-bottom: 1px solid rgba(60, 40, 80, 0.08);
+}
