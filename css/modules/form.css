@@ -124,6 +124,11 @@
   border-radius: 12px;
   animation: form-pop 0.35s ease;
 }
+.form__success--error {
+  color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.12);
+  border-color: rgba(255, 107, 107, 0.4);
+}
 @keyframes form-pop {
   from {
     transform: scale(0.95);

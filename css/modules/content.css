@@ -314,136 +314,691 @@
   box-shadow: 0 0 10px var(--accent);
 }
 
+/* Packages styles moved to modules/packages.css */
+
 /* ========= works ========= */
-.works__list {
+.works__grid {
   display: grid;
-  gap: 16px;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) minmax(0, .72fr);
+  gap: 12px;
+  height: clamp(460px, 58vh, 540px);
 }
+
 .work-card {
   position: relative;
-  margin: 0;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  padding: 0;
   border: 1px solid var(--card-border);
   border-radius: var(--radius);
   overflow: hidden;
   background: var(--surface);
   box-shadow: var(--card-shadow);
+  cursor: pointer;
+  isolation: isolate;
+  text-align: left;
+  appearance: none;
 }
+
+/* Главный проект: 60% ширины и две верхние строки */
+.work-card--featured {
+  grid-column: 1 / span 3;
+  grid-row: 1 / span 2;
+}
+
+/* Правая зона: 40% */
+.work-card--top {
+  grid-column: 4 / span 2;
+  grid-row: 1;
+}
+
+.work-card--middle {
+  grid-column: 4 / span 2;
+  grid-row: 2;
+}
+
+/* Нижняя строка */
+.work-card--wide {
+  grid-column: 1 / span 3;
+  grid-row: 3;
+}
+
+.work-card--small:nth-of-type(5) {
+  grid-column: 4;
+  grid-row: 3;
+}
+
+.work-card--small:nth-of-type(6) {
+  grid-column: 5;
+  grid-row: 3;
+}
+
 .work-card__image {
+  display: block;
   width: 100%;
-  aspect-ratio: 3 / 4;
+  height: 100%;
+  min-height: 0;
   object-fit: cover;
   background: var(--accent-soft);
-  transition: transform 0.4s;
+  transition: transform 0.65s cubic-bezier(.2,.7,.2,1), filter .45s ease;
 }
-.work-card:hover .work-card__image {
-  transform: scale(1.04);
-}
-.work-card__caption {
+
+.work-card::after {
+  content: "";
   position: absolute;
-  inset-inline: 0;
-  bottom: 0;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(10, 7, 18, .08) 15%, rgba(10, 7, 18, .14) 42%, rgba(10, 7, 18, .92) 100%);
+  pointer-events: none;
+}
+
+.work-card:hover .work-card__image,
+.work-card:focus-visible .work-card__image {
+  transform: scale(1.055);
+  filter: saturate(1.08);
+}
+
+.work-card__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  padding: 16px;
+  justify-content: space-between;
+  padding: 17px;
   color: #fff;
-  text-align: center;
-  background: linear-gradient(transparent, rgba(11, 7, 18, 0.85));
+  pointer-events: none;
 }
-.work-card__title {
-  font-weight: 700;
+
+.work-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 }
-.work-card__tag {
-  padding: 4px 10px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+
+.work-card__index {
+  font-family: var(--font-display);
+  font-size: .75rem;
+  letter-spacing: .12em;
+  opacity: .72;
+}
+
+.work-card__tag,
+.works-modal__tag {
+  display: inline-flex;
+  width: max-content;
+  padding: 5px 9px;
+  border: 1px solid rgba(255,255,255,.25);
   border-radius: 999px;
-  font-size: 0.72rem;
+  background: rgba(255,255,255,.1);
+  backdrop-filter: blur(10px);
+  font-size: .67rem;
   font-weight: 700;
   white-space: nowrap;
 }
 
-/* ========= steps ========= */
-.steps__list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+.work-card__info {
   display: grid;
-  gap: 16px;
-  grid-template-columns: repeat(3, 1fr);
+  gap: 7px;
 }
-.step {
-  padding: 28px 24px;
-  text-align: center;
-  background: var(--surface);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius);
-  box-shadow: var(--card-shadow);
+
+.work-card__title {
+  max-width: 92%;
+  font-size: clamp(.92rem, 1.25vw, 1.22rem);
+  line-height: 1.08;
+  font-weight: 800;
 }
-.step__number {
-  margin: 0 auto 14px;
-  width: 44px;
-  height: 44px;
+
+.work-card--featured .work-card__title {
+  max-width: 78%;
+  font-size: clamp(1.25rem, 2.35vw, 2rem);
+}
+
+.work-card__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  width: max-content;
+  font-size: .72rem;
+  font-weight: 700;
+  opacity: .78;
+  transition: gap .25s ease, opacity .25s ease;
+}
+
+.work-card:hover .work-card__action,
+.work-card:focus-visible .work-card__action {
+  gap: 12px;
+  opacity: 1;
+}
+
+.work-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.works-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
   display: grid;
   place-items: center;
-  border: 1px dashed var(--accent);
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .25s ease, visibility .25s ease;
+}
+
+.works-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.works-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 4, 12, .84);
+  backdrop-filter: blur(12px);
+}
+
+.works-modal__dialog {
+  position: relative;
+  z-index: 1;
+  width: min(920px, 100%);
+  max-height: calc(100vh - 48px);
+  overflow: auto;
+  border: 1px solid var(--card-border);
+  border-radius: calc(var(--radius) + 4px);
+  background: var(--surface);
+  box-shadow: 0 30px 90px rgba(0,0,0,.45);
+}
+
+.works-modal__image {
+  display: block;
+  width: 100%;
+  max-height: 72vh;
+  object-fit: contain;
+  background: #09070e;
+}
+
+.works-modal__caption {
+  display: grid;
+  gap: 8px;
+  padding: 18px 22px 22px;
+}
+
+.works-modal__tag {
+  color: var(--accent);
+  border-color: var(--card-border);
+  background: var(--accent-soft);
+}
+
+.works-modal__title {
+  margin: 0;
+  font-size: clamp(1.15rem, 2vw, 1.65rem);
+}
+
+.works-modal__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 3;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.2);
   border-radius: 50%;
+  background: rgba(10,7,18,.62);
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+}
+
+body.works-modal-open {
+  overflow: hidden;
+}
+
+/* =========================================================
+   STEPS — асимметричный timeline
+========================================================= */
+.steps__list {
+  position: relative;
+  margin: 0;
+  padding: 10px 0 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 72px minmax(0, 1fr);
+  row-gap: 16px;
+}
+
+.steps__list::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 26px;
+  bottom: 26px;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--accent) 7%,
+    var(--accent-2) 50%,
+    var(--accent) 93%,
+    transparent
+  );
+  box-shadow: 0 0 16px rgba(255, 95, 174, 0.42);
+}
+
+.step {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  text-align: left;
+}
+
+.step:nth-child(odd) {
+  grid-column: 1;
+}
+
+.step:nth-child(even) {
+  grid-column: 3;
+}
+
+.step__inner {
+  position: relative;
+  min-height: 118px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 22px;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm);
+  background:
+    radial-gradient(circle at 100% 50%, rgba(255, 95, 174, 0.08), transparent 42%),
+    linear-gradient(135deg, var(--surface), rgba(255, 95, 174, 0.035));
+  box-shadow: var(--card-shadow);
+  transition:
+    transform 0.28s ease,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease,
+    background 0.28s ease;
+}
+
+.step:nth-child(odd) .step__inner {
+  margin-right: 0;
+}
+
+.step:nth-child(even) .step__inner {
+  margin-left: 0;
+  background:
+    radial-gradient(circle at 0 50%, rgba(255, 95, 174, 0.08), transparent 42%),
+    linear-gradient(225deg, var(--surface), rgba(255, 95, 174, 0.035));
+}
+
+/* Связь карточки с центральной линией */
+.step:nth-child(odd) .step__inner::after,
+.step:nth-child(even) .step__inner::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 36px;
+  height: 1px;
+  transform: translateY(-50%);
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 10px rgba(255, 95, 174, 0.35);
+}
+
+.step:nth-child(odd) .step__inner::after {
+  right: -36px;
+}
+
+.step:nth-child(even) .step__inner::before {
+  left: -36px;
+}
+
+.step__number {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  background: var(--bg);
   color: var(--accent);
   font-family: var(--font-display);
-  font-weight: 700;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
   text-shadow: var(--glow);
+  box-shadow:
+    0 0 0 6px var(--bg),
+    0 0 20px rgba(255, 95, 174, 0.3);
+  transform: translateY(-50%);
+  transition: background 0.28s ease, box-shadow 0.28s ease, transform 0.28s ease;
 }
+
+.step:nth-child(odd) .step__number {
+  right: -26px;
+}
+
+.step:nth-child(even) .step__number {
+  left: -26px;
+}
+
+.step:nth-child(odd) .step__content {
+  padding-right: 28px;
+}
+
+.step:nth-child(even) .step__content {
+  padding-left: 28px;
+}
+
+.step__content {
+  min-width: 0;
+}
+
+.step__label {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--accent);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
 .step__title {
-  margin: 0 0 6px;
-  font-size: 1rem;
+  margin: 0 0 5px;
+  font-size: 1.04rem;
 }
+
 .step__text {
+  max-width: 560px;
   margin: 0;
   color: var(--muted);
-  font-size: 0.93rem;
+  font-size: 0.86rem;
+  line-height: 1.5;
 }
 
-/* ========= hover карточек после сборки ========= */
-.js .is-visible .benefit-card:hover {
-  transform: translateY(-6px) scale(1.04); /* приподнимается и растёт */
+.step__inner:hover {
+  transform: translateY(-4px);
   border-color: var(--accent);
   box-shadow: var(--glow);
+}
+
+.step__inner:hover .step__number {
+  background: var(--accent-soft);
+  box-shadow:
+    0 0 0 6px var(--bg),
+    0 0 28px rgba(255, 95, 174, 0.5);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.steps__note {
+  max-width: 760px;
+  margin: 22px auto 0;
+  padding: 11px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--muted);
+  font-size: 0.78rem;
+  text-align: center;
+}
+
+.steps__note p {
+  margin: 0;
+}
+
+.steps__note-mark {
+  flex: 0 0 auto;
+  color: var(--accent);
+  text-shadow: var(--glow);
+}
+
+/* =========================================================
+   STEPS — SCROLL REVEAL TIMELINE
+   Каждый этап появляется отдельно при прокрутке.
+========================================================= */
+.steps__list {
   position: relative;
-  z-index: 2; /* растёт поверх соседей */
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin: 0;
+  padding: 26px 0 8px;
+  list-style: none;
 }
 
-/* ========= «Почему сюжет»: сборка на animation, hover на transition ========= */
-.benefits [data-reveal] {
-  transition: none; /* въезд больше не через transition */
-  --from: none;
-  --dur: 0.9s;
-}
-.benefits [data-reveal="top"] {
-  --from: translateY(-40px);
-}
-.benefits [data-reveal="bottom"] {
-  --from: translateY(48px);
-}
-.benefits [data-reveal="left"] {
-  --from: translateX(-64px);
-}
-.benefits [data-reveal="right"] {
-  --from: translateX(64px);
-  --dur: 1.2s; /* правый ряд — медленнее */
+.steps__list::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--accent) 8%,
+    var(--accent-2) 50%,
+    var(--accent) 92%,
+    transparent
+  );
+  box-shadow: 0 0 18px rgba(255, 95, 174, 0.38);
 }
 
-.js .benefits.is-visible [data-reveal] {
-  animation: benefit-in var(--dur) cubic-bezier(0.22, 0.9, 0.32, 1) var(--d, 0s)
-    backwards;
+.step {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  text-align: left;
 }
-@keyframes benefit-in {
-  from {
-    opacity: 0;
-    transform: var(--from);
-  }
-  to {
+
+.step--left {
+  justify-content: flex-start;
+}
+
+.step--right {
+  justify-content: flex-end;
+}
+
+.step__inner {
+  position: relative;
+  width: calc(50% - 48px);
+  min-height: 124px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 20px 24px;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm);
+  background:
+    radial-gradient(circle at 100% 50%, rgba(255, 95, 174, 0.08), transparent 42%),
+    linear-gradient(135deg, var(--surface), rgba(255, 95, 174, 0.035));
+  box-shadow: var(--card-shadow);
+  transition:
+    transform 0.35s cubic-bezier(.2,.75,.2,1),
+    opacity 0.35s ease,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.step--right .step__inner {
+  background:
+    radial-gradient(circle at 0 50%, rgba(255, 95, 174, 0.08), transparent 42%),
+    linear-gradient(225deg, var(--surface), rgba(255, 95, 174, 0.035));
+}
+
+/* Начальное состояние: карточки прилетают с разных сторон. */
+html.js .step .step__inner {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+html.js .step--left .step__inner {
+  transform: translate3d(-110px, 0, 0) scale(0.98);
+}
+
+html.js .step--right .step__inner {
+  transform: translate3d(110px, 0, 0) scale(0.98);
+}
+
+html.js .step.is-visible .step__inner {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* Связь карточки с центральной осью. */
+.step--left .step__inner::after,
+.step--right .step__inner::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 48px;
+  height: 1px;
+  transform: translateY(-50%) scaleX(1);
+  transform-origin: center;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 12px rgba(255, 95, 174, 0.42);
+}
+
+.step--left .step__inner::after {
+  right: -48px;
+}
+
+.step--right .step__inner::before {
+  left: -48px;
+}
+
+.step__number {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-shadow: var(--glow);
+  box-shadow:
+    0 0 0 6px var(--bg),
+    0 0 22px rgba(255, 95, 174, 0.32);
+  transform: translateY(-50%) scale(0.9);
+  opacity: 0;
+  transition:
+    opacity 0.3s ease 0.12s,
+    transform 0.35s cubic-bezier(.2,.75,.2,1) 0.12s,
+    background 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.step--left .step__number {
+  right: -27px;
+}
+
+.step--right .step__number {
+  left: -27px;
+}
+
+html.js .step.is-visible .step__number {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+.step--left .step__content {
+  padding-right: 18px;
+}
+
+.step--right .step__content {
+  padding-left: 18px;
+}
+
+.step__content {
+  min-width: 0;
+}
+
+.step__label {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--accent);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.step__title {
+  margin: 0 0 5px;
+  font-size: 1.08rem;
+}
+
+.step__text {
+  max-width: 560px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.step__inner:hover {
+  transform: translateY(-4px) !important;
+  border-color: var(--accent);
+  box-shadow: var(--glow);
+}
+
+.step__inner:hover .step__number {
+  background: var(--accent-soft);
+  box-shadow:
+    0 0 0 6px var(--bg),
+    0 0 30px rgba(255, 95, 174, 0.54);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js .step .step__inner,
+  html.js .step--left .step__inner,
+  html.js .step--right .step__inner {
     opacity: 1;
     transform: none;
+  }
+
+  .step__number {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
   }
 }

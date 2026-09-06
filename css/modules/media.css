@@ -31,6 +31,9 @@
   .hero__actions {
     justify-content: center;
   }
+  .packages__features {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* ---------- портретный планшет (iPad / iPad Pro) ---------- */
@@ -128,16 +131,46 @@
     font-size: 0.95rem;
   }
 
-  .benefits__list,
-  .works__list,
+  .benefits__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .steps__list {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: minmax(0, 1fr) 56px minmax(0, 1fr);
+    row-gap: 14px;
   }
-  .packages__list {
-    grid-template-columns: repeat(2, 1fr);
+
+  .step__inner {
+    padding: 17px 18px;
   }
-  .package-card--vip {
-    grid-column: 1 / -1;
+
+  .step__number {
+    width: 48px;
+    height: 48px;
+  }
+
+  .step:nth-child(odd) .step__number {
+    right: -24px;
+  }
+
+  .step:nth-child(even) .step__number {
+    left: -24px;
+  }
+
+  .step:nth-child(odd) .step__inner::after,
+  .step:nth-child(even) .step__inner::before {
+    width: 28px;
+  }
+
+  .step:nth-child(odd) .step__inner::after {
+    right: -28px;
+  }
+
+  .step:nth-child(even) .step__inner::before {
+    left: -28px;
+  }
+  .packages__note {
+    display: none;
   }
   .results__grid {
     grid-template-columns: 1fr;
@@ -163,13 +196,60 @@
     max-width: 240px;
     margin: 0 auto;
   }
-  .benefits__list,
-  .works__list,
-  .steps__list {
+  .benefits__list {
     grid-template-columns: 1fr;
   }
-  .packages__list {
-    grid-template-columns: 1fr;
+
+  .steps__list {
+    grid-template-columns: 48px minmax(0, 1fr);
+    gap: 14px 0;
+    padding-left: 0;
+  }
+
+  .steps__list::before {
+    left: 24px;
+    top: 24px;
+    bottom: 24px;
+    transform: none;
+  }
+
+  .step:nth-child(odd),
+  .step:nth-child(even) {
+    grid-column: 2;
+  }
+
+  .step__inner,
+  .step:nth-child(even) .step__inner {
+    min-height: 104px;
+    margin: 0;
+    padding: 16px 16px 16px 22px;
+    background: linear-gradient(135deg, var(--surface), rgba(255, 95, 174, 0.035));
+  }
+
+  .step:nth-child(odd) .step__inner::after,
+  .step:nth-child(even) .step__inner::before {
+    display: block;
+    left: -24px;
+    right: auto;
+    width: 24px;
+  }
+
+  .step:nth-child(odd) .step__number,
+  .step:nth-child(even) .step__number {
+    left: -48px;
+    right: auto;
+    width: 42px;
+    height: 42px;
+    font-size: 0.64rem;
+  }
+
+  .step:nth-child(odd) .step__content,
+  .step:nth-child(even) .step__content {
+    padding: 0;
+  }
+
+  .steps__note {
+    border-radius: var(--radius-sm);
   }
   .form__grid {
     grid-template-columns: 1fr;
@@ -186,13 +266,7 @@
   .footer__inner {
     padding-inline: 16px;
   }
-  /* .formats__list {
-    grid-template-columns: 1fr;
-  }
-  .formats__list .format-card:last-child {
-    grid-column: auto;
-    width: auto;
-  } */
+
   .format-card[data-pos="1"] {
     transform: translateX(62%) scale(0.85) rotateY(-10deg);
   }
@@ -227,6 +301,9 @@
   .hero__title {
     font-size: clamp(1.7rem, 7vw, 2.2rem);
   }
+  .packages__features {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ---------- Доступность ---------- */
@@ -239,5 +316,181 @@
   *::after {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
+  }
+}
+
+
+/* ---------- works asymmetric ---------- */
+@media (max-width: 1100px) {
+  .works__grid {
+    height: clamp(440px, 58vh, 520px);
+  }
+
+  .work-card__overlay {
+    padding: 14px;
+  }
+
+  .work-card--featured .work-card__title {
+    font-size: clamp(1.1rem, 2.3vw, 1.65rem);
+  }
+}
+
+@media (max-width: 900px) {
+  .works__grid {
+    grid-template-columns: 1.2fr 1fr;
+    grid-template-rows: repeat(4, minmax(0, 1fr));
+    height: 600px;
+  }
+
+  .work-card--featured {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .work-card--top {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .work-card--middle {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .work-card--wide {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .work-card--small:nth-of-type(5) {
+    grid-column: 2;
+    grid-row: 3;
+  }
+
+  .work-card--small:nth-of-type(6) {
+    grid-column: 1 / span 2;
+    grid-row: 4;
+  }
+}
+
+@media (max-width: 767px) {
+  .works__grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    gap: 12px;
+    height: auto;
+  }
+
+  .work-card,
+  .work-card--featured,
+  .work-card--top,
+  .work-card--middle,
+  .work-card--wide,
+  .work-card--small {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+  }
+
+  .work-card__overlay {
+    padding: 14px;
+  }
+
+  .work-card--featured .work-card__title {
+    max-width: 92%;
+    font-size: 1.25rem;
+  }
+
+  .works-modal {
+    padding: 12px;
+  }
+
+  .works-modal__dialog {
+    max-height: calc(100vh - 24px);
+  }
+}
+
+
+/* ---------- steps scroll timeline overrides ---------- */
+@media (max-width: 1100px) {
+  .step__inner {
+    width: calc(50% - 38px);
+  }
+
+  .step--left .step__inner::after,
+  .step--right .step__inner::before {
+    width: 38px;
+  }
+
+  .step--left .step__inner::after {
+    right: -38px;
+  }
+
+  .step--right .step__inner::before {
+    left: -38px;
+  }
+}
+
+@media (max-width: 767px) {
+  .steps__list {
+    gap: 18px;
+    padding: 20px 0 4px 42px;
+  }
+
+  .steps__list::before {
+    left: 20px;
+    transform: none;
+  }
+
+  .step,
+  .step--left,
+  .step--right {
+    justify-content: flex-start;
+  }
+
+  .step__inner,
+  .step--right .step__inner,
+  .step--left .step__inner {
+    width: 100%;
+    min-height: 112px;
+    padding: 17px 18px 17px 20px;
+    background:
+      radial-gradient(circle at 0 50%, rgba(255, 95, 174, 0.08), transparent 42%),
+      linear-gradient(135deg, var(--surface), rgba(255, 95, 174, 0.035));
+  }
+
+  .step--left .step__inner::after,
+  .step--right .step__inner::before {
+    left: -22px;
+    right: auto;
+    width: 22px;
+  }
+
+  .step--left .step__number,
+  .step--right .step__number {
+    left: -42px;
+    right: auto;
+    width: 42px;
+    height: 42px;
+    font-size: 0.64rem;
+  }
+
+  .step--left .step__content,
+  .step--right .step__content {
+    padding: 0;
+  }
+
+  html.js .step--left .step__inner {
+    transform: translate3d(-70px, 0, 0) scale(0.98);
+  }
+
+  html.js .step--right .step__inner {
+    transform: translate3d(70px, 0, 0) scale(0.98);
+  }
+
+  html.js .step.is-visible .step__inner {
+    transform: translate3d(0, 0, 0) scale(1);
   }
 }

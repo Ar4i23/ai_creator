@@ -48,6 +48,7 @@ export function initFormValidation() {
 
   const submit = form.querySelector("[data-form-submit]");
   const success = form.querySelector("[data-form-success]");
+  const errorBox = form.querySelector("[data-form-error]");
   const fields = [...form.querySelectorAll("[data-validate]")];
 
   const getMessage = (el) =>
@@ -105,7 +106,18 @@ export function initFormValidation() {
     }
 
     submit.disabled = true;
-    await sendLead(Object.fromEntries(new FormData(form).entries()));
+    if (errorBox) errorBox.hidden = true;
+
+    const ok = await sendLead(Object.fromEntries(new FormData(form).entries()));
+
+    if (!ok) {
+      if (errorBox) {
+        errorBox.hidden = false;
+        errorBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+      submit.disabled = false;
+      return;
+    }
 
     success.hidden = false;
     form.reset();
