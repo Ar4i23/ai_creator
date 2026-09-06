@@ -22,7 +22,7 @@
 
 ## 🖼️ Превью сайта
 
-![Главная страница your.story](img/hero.png)
+![Главная страница your.story](img/preview.png)
 
 ---
 
